@@ -1,10 +1,10 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/Infra/mlops-ejemplo1', '.']
+  args: ['build', '-t', 'gcr.io/infra-471915/mlops-ejemplo1', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/Infra/mlops-ejemplo1']
+  args: ['push', 'gcr.io/infra-471915/mlops-ejemplo1']
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['beta', 'run', 'deploy', 'mlops-ejemplo1', '--image=gcr.io/Infra/mlops-ejemplo1', '--region=us-central1', '--platform=managed']
+  args: ['beta', 'run', 'deploy', 'mlops-ejemplo1', '--image=gcr.io/infra-471915/mlops-ejemplo1', '--region=us-central1', '--platform=managed']
 
 options:
   logging: CLOUD_LOGGING_ONLY  # Para enviar logs solo a Cloud Logging
