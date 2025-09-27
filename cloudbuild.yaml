@@ -1,0 +1,10 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/emontoya-mlops/mlops-ejemplo1', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/emontoya-mlops/mlops-ejemplo1']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['beta', 'run', 'deploy', 'mlops-ejemplo1', '--image=gcr.io/emontoya-mlops/mlops-ejemplo1', '--region=us-central1', '--platform=managed']
+
+options:
+  logging: CLOUD_LOGGING_ONLY  # Para enviar logs solo a Cloud Logging
